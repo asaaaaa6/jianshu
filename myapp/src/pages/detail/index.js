@@ -7,6 +7,7 @@ class Detail extends Component{
         <div>
           <DetailWrapper>
             <Header>一位女中学生撕心裂肺呐喊，快打开看看吧，好的</Header>
+            
             <Content>
               
             </Content>
