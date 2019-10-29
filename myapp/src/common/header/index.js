@@ -117,6 +117,8 @@ const mapDispathToProps = (dispatch)=>{
     handleFocus(list){
       // 分发action执行异步请求
       (list.size===0) && dispatch(actionCreators.getList())
+      console.log(list);
+      
       dispatch(actionCreators.searchFocus())
     },
     handleBlur(){

@@ -1,20 +1,37 @@
 import React, { Component } from 'react'
 import {DetailWrapper,Header,Content} from './style'
+import {connect} from 'react-redux'
+import {getDetail} from './store/actionCreators'
 
 class Detail extends Component{
     render() {
+      const {title,content} = this.props
       return (
         <div>
           <DetailWrapper>
-            <Header>一位女中学生撕心裂肺呐喊，快打开看看吧，我再看看把，修改一下就好了</Header>
-            
-            <Content>
+            <Header>{title}</Header>
+             {/* dangerouslySetInnerHTML={{__html:content}}显示成html */}
+            <Content dangerouslySetInnerHTML={{__html:content}}>
               
             </Content>
           </DetailWrapper>
         </div>
       )
     }
+    componentDidMount(){
+      
+      this.props.getDetail(this.props.match.params.f)
+    }
 }
 
-export default Detail
+const mapState = (state)=>({
+  title:state.getIn(["detail","title"]),
+  content:state.getIn(["detail","content"])
+})
+const mapDispatch = (dispatch)=>({
+  getDetail(id){
+    dispatch(getDetail(id))
+  }
+})
+
+export default connect(mapState,mapDispatch)(Detail)

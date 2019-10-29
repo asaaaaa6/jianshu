@@ -13,8 +13,6 @@ import Topic from './component/Topic'
 import Writer from './component/Writer'
 
 class Home extends PureComponent{
-
-    
     render() {
       return (
         

@@ -11,7 +11,6 @@ class App extends Component{
   render() {
     return (
       <Router>
-      <div>
         {/* provider使组件可以使用store仓库中的数据 */}
         <Provider store={store}>
           <Header/>
@@ -19,13 +18,11 @@ class App extends Component{
             <Route path='/' exact>
               <Home/>
             </Route>
-            <Route path='/detail' exact>
-              <Detail/>
+            {/* 要将组件写在上面才会有parms以及history在this.props中 */}
+            <Route path='/detail/:f' exact component={Detail}>
             </Route>
           </Switch>
         </Provider>
-        
-      </div>
       </Router>
     )
   }
