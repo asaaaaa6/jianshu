@@ -6,7 +6,7 @@ class Detail extends Component{
       return (
         <div>
           <DetailWrapper>
-            <Header>一位女中学生撕心裂肺呐喊，快打开看看吧，好的</Header>
+            <Header>一位女中学生撕心裂肺呐喊，快打开看看吧，我看看来，弟弟</Header>
             
             <Content>
               
