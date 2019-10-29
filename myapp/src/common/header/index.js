@@ -24,6 +24,8 @@ class Header extends PureComponent {
 
   getListArea = () => {
     const { focused, list, page, totalPage, handleMouseEnter, handleMouseLeave, mouseIn, handleChangePage } = this.props
+    console.log(totalPage);
+    
     // 转成js数组
     const newList = list.toJS()
     const pageList = []
@@ -141,6 +143,7 @@ const mapDispathToProps = (dispatch) => {
     },
     // 换页码的分发
     handleChangePage(page, totalPage, spin) {
+      // 能否匹配到数字，匹不到就是''
       let originAngle = spin.style.transform.replace(/[^0-9]/ig, '')
       if (originAngle) {
         originAngle = parseInt(originAngle, 10)
@@ -149,6 +152,8 @@ const mapDispathToProps = (dispatch) => {
       }
 
       spin.style.transform = `rotate(${originAngle + 360}deg)`
+      console.log(totalPage);
+      
       if (page < totalPage - 1) {
         dispatch(actionCreators.changePage(page + 1))
       } else {

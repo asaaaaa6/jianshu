@@ -4,7 +4,9 @@ import Header from './common/header'
 import store from './store'
 // 导入路由
 import { HashRouter as Router,Route,Switch,Link } from 'react-router-dom'
-import Detail from './pages/detail'
+
+// Detail变成异步组件
+import Detail from './pages/detail/loadable'
 import Home from './pages/home'
 import Login from './pages/login'
 import Writer from './pages/writer'
@@ -24,7 +26,6 @@ class App extends Component{
             <Route path='/detail/:f' exact component={Detail}/>
             <Route path='/login' exact component={Login}/>
             <Route path='/writer' exact component={Writer}/>
-            
           </Switch>
         </Provider>
       </Router>
