@@ -45,7 +45,7 @@ export const NavItem = styled.div`
 `;
 
 export const NavSearch = styled.input.attrs({
-    placeholder:'搜索'
+    placeholder: '搜索'
 })`
     &.slide-enter{
         transition:all 0.2s ease-out;

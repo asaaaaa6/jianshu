@@ -6,6 +6,8 @@ import store from './store'
 import { HashRouter as Router,Route,Switch,Link } from 'react-router-dom'
 import Detail from './pages/detail'
 import Home from './pages/home'
+import Login from './pages/login'
+import Writer from './pages/writer'
 
 class App extends Component{
   render() {
@@ -19,8 +21,10 @@ class App extends Component{
               <Home/>
             </Route>
             {/* 要将组件写在上面才会有parms以及history在this.props中 */}
-            <Route path='/detail/:f' exact component={Detail}>
-            </Route>
+            <Route path='/detail/:f' exact component={Detail}/>
+            <Route path='/login' exact component={Login}/>
+            <Route path='/writer' exact component={Writer}/>
+            
           </Switch>
         </Provider>
       </Router>
