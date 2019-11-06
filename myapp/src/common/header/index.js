@@ -24,7 +24,7 @@ class Header extends PureComponent {
 
   getListArea = () => {
     const { focused, list, page, totalPage, handleMouseEnter, handleMouseLeave, mouseIn, handleChangePage } = this.props
-    console.log(totalPage);
+    // console.log(totalPage);
     
     // 转成js数组
     const newList = list.toJS()
@@ -45,7 +45,8 @@ class Header extends PureComponent {
           <SearchInfoTitle>
             热门搜索
               <SearchInfoSwitch onClick={() => { handleChangePage(page, totalPage, this.spinIcon) }}>
-              <i ref={(icon) => { this.spinIcon = icon }} className="iconfont spin">&#xe636;</i>
+              <i ref={(icon) => { this.spinIcon = icon }} className="iconfont spin iconhuanyihuan"></i>
+              {/* <i ref={(icon) => { this.spinIcon = icon }} className="iconfont spin">&#xe636;</i> */}
               换一批</SearchInfoSwitch>
           </SearchInfoTitle>
           <SearchInfoList>
@@ -59,6 +60,8 @@ class Header extends PureComponent {
   }
 
   render() {
+    // console.log('render');
+    
     const { focused, handleFocus, handleBlur, list, login, loginOut } = this.props
     return (
 
@@ -72,7 +75,8 @@ class Header extends PureComponent {
           {login ? <NavItem className="right" onClick={loginOut}>退出</NavItem> : <Link to="/login"><NavItem className="right">登录</NavItem></Link>}
 
           <NavItem className="right">
-            <i className="iconfont">&#xe636;</i>
+            <i className="iconfont  iconAa"></i>
+            {/* <i className="iconfont  iconAa">&#xe636;</i> */}
           </NavItem>
           {/* 搜索框 */}
           <SearchWrapper>
@@ -85,7 +89,8 @@ class Header extends PureComponent {
                 onFocus={() => { handleFocus(list) }}
                 onBlur={() => { handleBlur() }}></NavSearch>
             </CSSTransition>
-            <i className={focused ? 'focused iconfont zoom' : 'iconfont zoom'}>&#xe614;</i>
+            {/* <i className={focused ? 'focused iconfont iconfangdajing zoom' : 'iconfont iconfangdajing zoom'}>&#xe614;</i> */}
+            <i className={focused ? 'focused iconfont iconfangdajing zoom' : 'iconfont iconfangdajing zoom'}></i>
             {/* 下拉换一批 */}
             {this.getListArea()}
           </SearchWrapper>
@@ -95,7 +100,8 @@ class Header extends PureComponent {
           <Button className="reg">注册</Button>
           <Link to="/writer">
             <Button className="writting">
-              <i className="iconfont">&#x615;</i>
+              <i className="iconfont iconpiaoliusanicon-bi-"></i>
+              {/* <i className="iconfont iconpiaoliusanicon-bi-">&#x615;</i> */}
               写文章</Button>
           </Link>
         </Addition>
@@ -128,7 +134,7 @@ const mapDispathToProps = (dispatch) => {
     handleFocus(list) {
       // 分发action执行异步请求
       (list.size === 0) && dispatch(actionCreators.getList())
-      console.log(list);
+      // console.log(list);
 
       dispatch(actionCreators.searchFocus())
     },
@@ -152,7 +158,7 @@ const mapDispathToProps = (dispatch) => {
       }
 
       spin.style.transform = `rotate(${originAngle + 360}deg)`
-      console.log(totalPage);
+      // console.log(totalPage);
       
       if (page < totalPage - 1) {
         dispatch(actionCreators.changePage(page + 1))

@@ -5,6 +5,13 @@ import  { actionCreators } from '../store'
 import { Link } from 'react-router-dom'
 
 class List extends PureComponent{
+  constructor(props){
+    super(props)
+    console.log(this.props)
+    this.state = {
+      arr:[1,2,3]
+    }
+  }
     render() {
       const { list,getMoreList,page }=this.props
       return (
