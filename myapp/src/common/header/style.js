@@ -140,7 +140,7 @@ export const SearchInfoSwitch = styled.span`
     font-size:13px;
     cursor:pointer;
     .spin{
-        font-size:16px;
+        font-size:19px;
         margin-right:2px;
         transition:all .2s ease-in;
         transfrom-origin:center center;
